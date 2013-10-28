@@ -14,6 +14,11 @@ TODOS
 
 Changes
 
+2013-10-28
+  o    As per CRAN policies, edited DESCRIPTION and NAMESPACE file. 
+	Because there is no change to code, the date of the package 
+	advanced by only 1 day. NEWS updated.
+
 2013-10-27
    o    Inserted missing index in bmchk (bdmsk)
 

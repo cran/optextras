@@ -1,3 +1,6 @@
+import(
+  "numDeriv"
+)
 export(
   "optsp",
   "axsearch",
