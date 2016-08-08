@@ -1,5 +1,5 @@
-################### scalecheck #######################
-scalecheck<-function(par, lower=lower, upper=upper, bdmsk=NULL, dowarn=TRUE){
+################### scalechk #######################
+scalechk<-function(par, lower=lower, upper=upper, bdmsk=NULL, dowarn=TRUE){
    # a function to check the initial parameters and bounds for inputs to optimization codes
    # Arguments:
    #   par -- starting parameters supplied 
@@ -9,7 +9,7 @@ scalecheck<-function(par, lower=lower, upper=upper, bdmsk=NULL, dowarn=TRUE){
    # Returns:
    #   list(lpratio, lbratio) -- the log of the ratio of largest to smallest parameters
    #      and bounds intervals (upper-lower) in absolute value (ignoring Inf, NULL, NA)
-   ######################################
+   #######################################
    if (is.null(par)) { stop("Null parameter vector") }
    npar<-length(par)
    if (is.null(bdmsk)) bdmsk <- rep(1,npar) # ensure bdmsk defined
@@ -35,7 +35,10 @@ scalecheck<-function(par, lower=lower, upper=upper, bdmsk=NULL, dowarn=TRUE){
    bddiff<-upper-lower
    bddiff<-bddiff[which(is.finite(bddiff))]
    lbd<-log10(bddiff[which(bddiff>0)]) # Change 20100711
-   lpratio<-max(logpar) - min(logpar)
+   if(length(logpar)>0) ## Thanks to J Laake 140904
+     lpratio <- max(logpar) - min(logpar)
+   else
+     lpratio=0 # was: lpratio<-max(logpar) - min(logpar)
    if (length(lbd) > 0) {
       lbratio<-max(lbd)-min(lbd)
    } else { 
@@ -43,4 +46,4 @@ scalecheck<-function(par, lower=lower, upper=upper, bdmsk=NULL, dowarn=TRUE){
    }
    ratios<-list(lpratio=lpratio,lbratio=lbratio) # return(ratios)
 }
-################### end scalecheck #######################
+################### end scalechk #######################

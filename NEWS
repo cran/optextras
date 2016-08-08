@@ -3,21 +3,17 @@ Changes in optextras
 Changes before 2012-5-26 not recorded 
 
 TODOS
-
-   o    The optsp environment is only currently used
-        with the simple numerical gradient approximations.
-        It needs to be added to ufn, ugr, uhess and some
-        other routines. 
-
-   o    Need to check that other packages can use the
-        optsp environment, e.g., Rtn.
+   o    Examples and tests for grchk, kktchk needed.
 
 Changes
 
-2013-10-28
-  o    As per CRAN policies, edited DESCRIPTION and NAMESPACE file. 
-	Because there is no change to code, the date of the package 
-	advanced by only 1 day. NEWS updated.
+2016-6-30
+   o    Streamlined the package to get rid of ufn, ugr, uhess, 
+        ugHgenb that are so far unused. 
+   o    The optsp environment is only currently used
+        with the simple numerical gradient approximations.
+   o    kktc renamed to kktchk. scalecheck renamed to scalechk
+        for consistency with other naming.
 
 2013-10-27
    o    Inserted missing index in bmchk (bdmsk)

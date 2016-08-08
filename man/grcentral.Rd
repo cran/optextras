@@ -1,6 +1,7 @@
 \name{grcentral}
 \alias{grcentral}
 
+
 \title{Central difference numerical gradient approximation.}
 
 \description{
